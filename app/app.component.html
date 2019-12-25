@@ -1,0 +1,12 @@
+<form class="example-form">
+  <mat-form-field>
+    <div>
+      <input (click)="toggle(foodControl.value)" *ngIf="state === 'read'" matInput placeholder="Favorite food" [formControl]="foodControl" readonly>
+      <mat-select *ngIf="state === 'write'" placeholder="Favorite food" [formControl]="foodControl" (selectionChange)="onFoodSelection1($event.value)">
+        <mat-option *ngFor="let food of foods; let i = index;" [value]="food.viewValue">
+          {{ food.viewValue }}
+        </mat-option>
+      </mat-select>
+    </div>
+</mat-form-field>
+</form>
